@@ -1,6 +1,5 @@
 window.SpeechRecognition =
   window.webkitSpeechRecognition || window.SpeechRecognition;
-
 const synth = window.speechSynthesis;
 const recognition = new SpeechRecognition();
 
@@ -9,6 +8,8 @@ let paragraph = document.createElement("p");
 let container = document.querySelector(".text-box");
 container.appendChild(paragraph);
 const sound = document.querySelector(".sound");
+
+openWeatherAPI = "023d00a8a70ecac43501c9e0093baa76";
 
 icon.addEventListener("click", () => {
   sound.play();
@@ -22,13 +23,15 @@ const dictate = () => {
 
     paragraph.textContent = speechToText;
 
-    if (event.result[0].isFinal) {
+    if (event.results[0].isFinal) {
       if (speechToText.includes("what is the time")) {
         speak(getTime);
       }
+
       if (speechToText.includes("what is today's date")) {
-        speak(getTime);
+        speak(getDate);
       }
+
       if (speechToText.includes("what is the weather in")) {
         getTheWeather(speechToText);
       }
@@ -59,7 +62,7 @@ const getTheWeather = (speech) => {
   fetch(
     `http://api.openweathermap.org/data/2.5/weather?q=${
       speech.split(" ")[5]
-    }&appid=023d00a8a70ecac43501c9e0093baa76&units=metric`
+    }&appid=${openWeatherAPI}&units=metric`
   )
     .then(function (response) {
       return response.json();
