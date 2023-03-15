@@ -1,0 +1,64 @@
+:root {
+  --dark: #1e2440;
+  --smooth: #f2efe2;
+}
+
+body {
+  background: #1e2440;
+  color: var(--smooth);
+  font-size: 16px;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.container {
+  position: relative;
+  border: 1px solid var(--smooth);
+  width: 40vw;
+  max-width: 60vw;
+  margin: 0 auto;
+  border-radius: 0.1rem;
+  background-color: var(--smooth);
+  padding: 0.2rem 1rem;
+  color: var(--dark);
+  overflow: scroll;
+  margin-top: 10vh;
+}
+
+.text-box {
+  max-height: 70vh;
+  /* overflow: scroll; */
+}
+
+.text-box:focus {
+  outline: none;
+}
+
+.text-box p {
+  border-bottom: 1px dotted black;
+  margin: 0px !important;
+}
+
+.fa {
+  color: white;
+  background-color: var(--dark);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 1rem;
+  float: right;
+  width: 2rem;
+  height: 2rem;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 85vw;
+    max-width: 85vw;
+  }
+
+  .text-box {
+    max-height: 55vh;
+  }
+}
