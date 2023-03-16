@@ -24,15 +24,15 @@ const dictate = () => {
     paragraph.textContent = speechToText;
 
     if (event.results[0].isFinal) {
-      if (speechToText.includes("what is the time")) {
+      if (speechToText.includes("what time")) {
         speak(getTime);
       }
 
-      if (speechToText.includes("what is today's date")) {
+      if (speechToText.includes("what today date")) {
         speak(getDate);
       }
 
-      if (speechToText.includes("what is the weather in")) {
+      if (speechToText.includes("what is the weather")) {
         getTheWeather(speechToText);
       }
     }
